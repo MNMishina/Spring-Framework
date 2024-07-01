@@ -3,6 +3,7 @@ package petclinic.controllers;
 import org.assertj.core.internal.bytebuddy.matcher.ModifierMatcher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import petclinic.ControllerTests;
 import petclinic.fspring.ModelMapImplementation;
 import petclinic.model.Vet;
 import petclinic.services.SpecialtyService;
@@ -16,7 +17,7 @@ import java.util.Set;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class VetControllerTest {
+class VetControllerTest implements ControllerTests {
 
   VetService vetService;
   SpecialtyService specialtyService;

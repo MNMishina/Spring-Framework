@@ -2,12 +2,12 @@ package petclinic.model;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import petclinic.ModelTests;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Tag("model")
-public class OwnerTest {
+public class OwnerTest implements ModelTests {
   @Test
   void dependentAssertions() {
     Owner owner = new Owner(1l, "Joe", "Dawson");

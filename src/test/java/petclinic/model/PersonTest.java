@@ -1,12 +1,11 @@
 package petclinic.model;
 
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import petclinic.ModelTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Tag("model")
-class PersonTest {
+class PersonTest implements ModelTests {
 
   @Test
   void groupedAssertions() {
@@ -16,7 +15,17 @@ class PersonTest {
     assertAll("Test Props Set",
           () -> assertEquals("Dorian", person.getFirstName(), "First Name Failed"),
           () -> assertEquals("Grey", person.getLastName(), "Last Name Failed"));
+  }
 
+  @RepeatedTest(value = 5, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
+  @DisplayName("My Repeated Test")
+  void myRepeatedTest() {
+    // TODO - impl
+  }
+
+  @RepeatedTest(3)
+  void myRepeatedTestWithDI(TestInfo testInfo,RepetitionInfo repetitionInfo) {
+    System.out.println(testInfo.getDisplayName() + ": " + repetitionInfo.getCurrentRepetition());
   }
 
 
