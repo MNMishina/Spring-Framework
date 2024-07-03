@@ -1,7 +1,10 @@
 package petclinic.model;
 
-import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import petclinic.ModelTests;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -23,5 +26,19 @@ public class OwnerTest implements ModelTests {
                 () -> assertEquals("1231231234", owner.getTelephone())
           ));
     //assertThat(owner.getCity(), is("Key West"));
+  }
+
+  @DisplayName("Value Source Test")
+  @ParameterizedTest(name = "{displayName} - [{index}] {argumentsWithNames}")
+  @ValueSource(strings = {"Spring", "Framework", "Rita"})
+  void testValueSource(String val) {
+    System.out.println(val);
+  }
+
+  @DisplayName("Enum Source Test")
+  @ParameterizedTest(name = "{displayName} - [{index}] {argumentsWithNames}")
+  @EnumSource(OwnerType.class)
+  void enumTest(OwnerType ownerType) {
+    System.out.println(ownerType);
   }
 }

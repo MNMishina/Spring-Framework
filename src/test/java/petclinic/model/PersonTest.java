@@ -1,9 +1,10 @@
 package petclinic.model;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 import petclinic.ModelTests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PersonTest implements ModelTests {
 
@@ -16,17 +17,4 @@ class PersonTest implements ModelTests {
           () -> assertEquals("Dorian", person.getFirstName(), "First Name Failed"),
           () -> assertEquals("Grey", person.getLastName(), "Last Name Failed"));
   }
-
-  @RepeatedTest(value = 5, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
-  @DisplayName("My Repeated Test")
-  void myRepeatedTest() {
-    // TODO - impl
-  }
-
-  @RepeatedTest(3)
-  void myRepeatedTestWithDI(TestInfo testInfo,RepetitionInfo repetitionInfo) {
-    System.out.println(testInfo.getDisplayName() + ": " + repetitionInfo.getCurrentRepetition());
-  }
-
-
 }

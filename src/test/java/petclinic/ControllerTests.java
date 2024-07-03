@@ -7,8 +7,8 @@ import org.junit.jupiter.api.TestInstance;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("controllers")
 public interface ControllerTests {
-    @BeforeAll
+  @BeforeAll
   default void beforeAll() {
-      System.out.println("Before all method");
-    }
+    System.out.println("Before all method");
+  }
 }
